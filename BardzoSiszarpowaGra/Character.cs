@@ -61,6 +61,34 @@ namespace BardzoSiszarpowaGra
 		}
 	};
 
+	class Skill
+    {
+		private string name;
+		private int currentCooldown;
+		private int cooldownTime;
+		public Action<Character, Character> action;
+		public Skill(string cName, int cooldown, Action<Character, Character> defAction)
+        {
+			name = cName;
+			currentCooldown = 0;
+			cooldownTime = cooldown;
+			action = defAction;
+		}
+		public void setCurrentCooldown(int cooldown)
+        {
+			currentCooldown = cooldown;
+        }
+		public int getCurrentCooldown()
+        {
+			return currentCooldown;
+        }
+		public void use(Character user, Character target)
+        {
+			action(user, target);
+			currentCooldown = cooldownTime;
+        }
+    };
+
 	abstract class Character
 	{
 		protected string name;
@@ -68,18 +96,37 @@ namespace BardzoSiszarpowaGra
 		protected bool sex; //true - kobieta, false - mezczyzna
 		protected Statistics special;
 		protected Level lvl;
+		protected int hp;
 		protected int gold;
+		protected List<Skill> skills;
 		//Currently unused
 		//List<Weapon> weapon_eq;
 		//List<Armor> armor_eq;
 		//List<Equipment> equipment_eq;
 
-		public Character(string setName, bool setSex, Statistics stats, int lvls = 1)
+		public Character(string setName, bool setSex, int lvls = 1)
         {
 			name = setName;
 			sex = setSex;
-			special = stats;
-			//Add skills!
+			special = new Statistics();
+			randomizeStatistics();
+			hp = special.endurance * 10;
+			skills = new List<Skill>();
+			skills.Add(new Skill("Atak", 0,(Character user, Character target) => {
+				Random rand = new Random();
+				int dmg = Convert.ToInt32(user.getStats().strength * 0.5) +
+				rand.Next(0, user.getStats().luck);
+				target.modifyHP(-dmg);
+				Console.WriteLine(user.name + (user.getSex() ? " zaatakowała" : " zaatakował") + " zadając " + dmg + " obrażeń.");
+			}));
+			skills.Add(new Skill("Atak magiczny", 0, (Character user, Character target) => {
+				Random rand = new Random();
+				int dmg = Convert.ToInt32(user.getStats().intelligence * 0.5) +
+				rand.Next(0, user.getStats().luck);
+				target.modifyHP(-dmg);
+				Console.WriteLine(user.name + " rzuca czary zadając " + dmg + " obrażeń.");
+			}));
+			lvl = new Level();
 			lvl.setLevel(lvls);
 		}
 		public Statistics getStats()
@@ -222,6 +269,18 @@ namespace BardzoSiszarpowaGra
         {
 			gold += modified;
         }
+		public List<Skill> getSkills()
+        {
+			return skills;
+        }
+		public int getHP()
+        {
+			return hp;
+        }
+		public void modifyHP(int modifier)
+        {
+			hp += modifier;
+        }
 	};
 
 	class Knight : Character {
@@ -236,10 +295,16 @@ namespace BardzoSiszarpowaGra
 			special.agility = rand.Next(5, 9);
 			special.luck = rand.Next(1, 21);
 		}
-		public Knight(string n, bool g, Statistics stats) : base(n, g, stats)
+		public Knight(string n, bool g) : base(n, g)
 		{
 			CharClass = Proffesion.PROFF_KNIGHT;
-			//add skill
+			skills.Add(new Skill("Mocny cios", 5, (Character user, Character target) =>
+			{
+				Random rand = new Random();
+				int dmg = user.getStats().strength + 35 + rand.Next(0, user.getStats().luck);
+				target.modifyHP(-dmg);
+				Console.WriteLine(user.getName() + " zadaje potężny cios za " + dmg + " obrażeń.");
+			}));
 		}
 	};
 
@@ -256,10 +321,16 @@ namespace BardzoSiszarpowaGra
 			special.agility = rand.Next(25, 35);
 			special.luck = rand.Next(1, 21);
 		}
-		public Archer(string n, bool g, Statistics stats) : base(n, g, stats)
+		public Archer(string n, bool g) : base(n, g)
 		{
 			CharClass = Proffesion.PROFF_ARCHER;
-			//add skill
+			skills.Add(new Skill("Strzał z łuku", 2, (Character user, Character target) =>
+			{
+				Random rand = new Random();
+				int dmg = Convert.ToInt32(user.getStats().agility * 1.5) + rand.Next(0, user.getStats().luck);
+				target.modifyHP(-dmg);
+				Console.WriteLine(target.getName() + (target.getSex() ? " została postrzelona za " : " został postrzelony za ") + dmg + " obrażeń.");
+			}));
 		}
 	};
 
@@ -276,10 +347,16 @@ namespace BardzoSiszarpowaGra
 			special.agility = rand.Next(3, 8);
 			special.luck = rand.Next(1, 21);
 		}
-		public Bard(string n, bool g, Statistics stats) : base(n, g, stats)
+		public Bard(string n, bool g) : base(n, g)
 		{
 			CharClass = Proffesion.PROFF_BARD;
-			//add skill
+			skills.Add(new Skill("Pieśń Apolla", 3, (Character user, Character target) =>
+			{
+				Random rand = new Random();
+				int dmg = Convert.ToInt32(target.getStats().strength * 0.5) + rand.Next(0, user.getStats().luck);
+				target.modifyHP(-dmg);
+				Console.WriteLine(target.getName() + (target.getSex() ? " zaatakowała sama " : " zaatakował sam ") + "siebie za " + dmg + " obrażeń.");
+			}));
 		}
 	};
 
@@ -296,10 +373,17 @@ namespace BardzoSiszarpowaGra
 			special.agility = rand.Next(10, 15);
 			special.luck = 1;
 		}
-		public DarkKnight(string n, bool g, Statistics stats) : base(n, g, stats)
+		public DarkKnight(string n, bool g) : base(n, g)
 		{
 			CharClass = Proffesion.PROFF_DARK_KNIGHT;
-			//add skill
+			skills.Add(new Skill("Bluźniercze leczenie", 4, (Character user, Character target) =>
+			{
+				Random rand = new Random();
+				int dmg = Convert.ToInt32(target.getStats().intelligence * 0.7) + rand.Next(0, user.getStats().luck);
+				target.modifyHP(-dmg);
+				user.modifyHP(dmg);
+				Console.WriteLine(user.getName() + (user.getSex() ? " ukradła " : " ukradł ") + dmg + " HP przeciwnikowi.");
+			}));
 		}
 	};
 
@@ -316,10 +400,16 @@ namespace BardzoSiszarpowaGra
 			special.agility = rand.Next(3, 8);
 			special.luck = rand.Next(1, 21);
 		}
-		public Cleric(string n, bool g, Statistics stats) : base(n, g, stats)
+		public Cleric(string n, bool g) : base(n, g)
 		{
 			CharClass = Proffesion.PROFF_CLERIC;
-			//add skill
+			skills.Add(new Skill("Leczenie", 3, (Character user, Character target) =>
+			{
+				Random rand = new Random();
+				int heal = target.getStats().intelligence + rand.Next(0, user.getStats().luck);
+				user.modifyHP(heal);
+				Console.WriteLine(user.getName() + (user.getSex() ? " uleczyła " : " uleczył ") + "się za " + heal + " HP.");
+			}));
 		}
 	};
 
@@ -336,10 +426,16 @@ namespace BardzoSiszarpowaGra
 			special.agility = rand.Next(3, 8);
 			special.luck = rand.Next(1, 21);
 		}
-		public Mage(string n, bool g, Statistics stats) : base(n, g, stats)
+		public Mage(string n, bool g) : base(n, g)
 		{
 			CharClass = Proffesion.PROFF_MAGE;
-			//add skill
+			skills.Add(new Skill("Kula ognia", 4, (Character user, Character target) =>
+			{
+				Random rand = new Random();
+				int dmg = Convert.ToInt32(target.getStats().intelligence * 1.5) + rand.Next(0, user.getStats().luck);
+				target.modifyHP(dmg);
+				Console.WriteLine(target.getName() + (target.getSex() ? " została trafiona " : " został trafiony ") + " za " + dmg + " HP.");
+			}));
 		}
 	};
 
