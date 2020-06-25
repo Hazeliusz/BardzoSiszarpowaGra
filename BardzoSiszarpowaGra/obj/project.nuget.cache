@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "9ujaC3SbQ91Jh2kSDwcvcjVMV6Hkg0yWRU8L+j24EXydUSXNZ7t+gtUWM9I2QuPaMhBLQqnAKC5UJTkIPwuuhQ==",
+  "success": true,
+  "projectFilePath": "H:\\Programowanie\\CS\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hazel\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
