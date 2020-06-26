@@ -78,9 +78,17 @@ namespace BardzoSiszarpowaGra
         {
 			currentCooldown = cooldown;
         }
+		public void reduceCurrentCooldown()
+        {
+			currentCooldown--;
+        }
 		public int getCurrentCooldown()
         {
 			return currentCooldown;
+        }
+		public string getName()
+        {
+			return name;
         }
 		public void use(Character user, Character target)
         {
@@ -195,7 +203,7 @@ namespace BardzoSiszarpowaGra
 					{
 						choice = Convert.ToInt32(Console.ReadLine());
 					}
-					catch (InvalidCastException)
+					catch (FormatException)
 					{
 						choice = 0;
 					}
@@ -434,7 +442,7 @@ namespace BardzoSiszarpowaGra
 				Random rand = new Random();
 				int dmg = Convert.ToInt32(target.getStats().intelligence * 1.5) + rand.Next(0, user.getStats().luck);
 				target.modifyHP(dmg);
-				Console.WriteLine(target.getName() + (target.getSex() ? " została trafiona " : " został trafiony ") + " za " + dmg + " HP.");
+				Console.WriteLine(target.getName() + (target.getSex() ? " została trafiona" : " został trafiony") + " za " + dmg + " HP.");
 			}));
 		}
 	};
