@@ -387,7 +387,7 @@ namespace BardzoSiszarpowaGra
 			skills.Add(new Skill("Bluźniercze leczenie", 4, (Character user, Character target) =>
 			{
 				Random rand = new Random();
-				int dmg = Convert.ToInt32(target.getStats().intelligence * 0.7) + rand.Next(0, user.getStats().luck);
+				int dmg = Convert.ToInt32(user.getStats().intelligence * 0.7) + rand.Next(0, user.getStats().luck);
 				target.modifyHP(-dmg);
 				user.modifyHP(dmg);
 				Console.WriteLine(user.getName() + (user.getSex() ? " ukradła " : " ukradł ") + dmg + " HP przeciwnikowi.");
@@ -414,7 +414,7 @@ namespace BardzoSiszarpowaGra
 			skills.Add(new Skill("Leczenie", 3, (Character user, Character target) =>
 			{
 				Random rand = new Random();
-				int heal = target.getStats().intelligence + rand.Next(0, user.getStats().luck);
+				int heal = user.getStats().intelligence + rand.Next(0, user.getStats().luck);
 				user.modifyHP(heal);
 				Console.WriteLine(user.getName() + (user.getSex() ? " uleczyła " : " uleczył ") + "się za " + heal + " HP.");
 			}));
@@ -440,7 +440,7 @@ namespace BardzoSiszarpowaGra
 			skills.Add(new Skill("Kula ognia", 4, (Character user, Character target) =>
 			{
 				Random rand = new Random();
-				int dmg = Convert.ToInt32(target.getStats().intelligence * 1.5) + rand.Next(0, user.getStats().luck);
+				int dmg = Convert.ToInt32(user.getStats().intelligence * 1.5) + rand.Next(0, user.getStats().luck);
 				target.modifyHP(dmg);
 				Console.WriteLine(target.getName() + (target.getSex() ? " została trafiona" : " został trafiony") + " za " + dmg + " HP.");
 			}));

@@ -8,10 +8,14 @@ namespace BardzoSiszarpowaGra
     {
         static void Main(string[] args)
         {
-            Mage player = new Mage("Hazel", false);
-            Bard wrog = new Bard("Worg", true);
-            CharactersInteractions interact = new CharactersInteractions(player, wrog);
-            interact.MonsterFight();
+            Archer player = new Archer("Hazel", false);
+            player.getStats().agility = 100;
+            Map mapa = new Map(player);
+            while (true)
+            {
+                mapa.draw();
+                mapa.move();
+            }
         }
     }
 }
