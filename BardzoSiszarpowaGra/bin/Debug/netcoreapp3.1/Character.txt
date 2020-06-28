@@ -1,0 +1,5 @@
+//XXXYYY DIA_XXX_YYY
+//np. 001020 DIA_001_020 dla postaci na pozycji X = 1 i Y = 20
+// <- to komentarz
+//zakomentowane linie nie są czytane przez grę, jednak komentarz mu znajdować się na początku linii
+004023 DIA_004_023

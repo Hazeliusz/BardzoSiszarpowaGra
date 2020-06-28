@@ -1,0 +1,13 @@
+H:\Programowanie\CS\BardzoSiszarpowaGra\BardzoSiszarpowaGra\bin\Debug\netcoreapp3.1\BardzoSiszarpowaGra.exe
+H:\Programowanie\CS\BardzoSiszarpowaGra\BardzoSiszarpowaGra\bin\Debug\netcoreapp3.1\BardzoSiszarpowaGra.deps.json
+H:\Programowanie\CS\BardzoSiszarpowaGra\BardzoSiszarpowaGra\bin\Debug\netcoreapp3.1\BardzoSiszarpowaGra.runtimeconfig.json
+H:\Programowanie\CS\BardzoSiszarpowaGra\BardzoSiszarpowaGra\bin\Debug\netcoreapp3.1\BardzoSiszarpowaGra.runtimeconfig.dev.json
+H:\Programowanie\CS\BardzoSiszarpowaGra\BardzoSiszarpowaGra\bin\Debug\netcoreapp3.1\BardzoSiszarpowaGra.dll
+H:\Programowanie\CS\BardzoSiszarpowaGra\BardzoSiszarpowaGra\bin\Debug\netcoreapp3.1\BardzoSiszarpowaGra.pdb
+H:\Programowanie\CS\BardzoSiszarpowaGra\BardzoSiszarpowaGra\obj\Debug\netcoreapp3.1\BardzoSiszarpowaGra.csprojAssemblyReference.cache
+H:\Programowanie\CS\BardzoSiszarpowaGra\BardzoSiszarpowaGra\obj\Debug\netcoreapp3.1\BardzoSiszarpowaGra.AssemblyInfoInputs.cache
+H:\Programowanie\CS\BardzoSiszarpowaGra\BardzoSiszarpowaGra\obj\Debug\netcoreapp3.1\BardzoSiszarpowaGra.AssemblyInfo.cs
+H:\Programowanie\CS\BardzoSiszarpowaGra\BardzoSiszarpowaGra\obj\Debug\netcoreapp3.1\BardzoSiszarpowaGra.csproj.CoreCompileInputs.cache
+H:\Programowanie\CS\BardzoSiszarpowaGra\BardzoSiszarpowaGra\obj\Debug\netcoreapp3.1\BardzoSiszarpowaGra.dll
+H:\Programowanie\CS\BardzoSiszarpowaGra\BardzoSiszarpowaGra\obj\Debug\netcoreapp3.1\BardzoSiszarpowaGra.pdb
+H:\Programowanie\CS\BardzoSiszarpowaGra\BardzoSiszarpowaGra\obj\Debug\netcoreapp3.1\BardzoSiszarpowaGra.genruntimeconfig.cache

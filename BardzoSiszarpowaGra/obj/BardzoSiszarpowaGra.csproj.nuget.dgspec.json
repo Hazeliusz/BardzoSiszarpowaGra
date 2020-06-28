@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\Programowanie\\CS\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra.csproj": {}
+    "H:\\Programowanie\\CS\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra.csproj": {}
   },
   "projects": {
-    "H:\\Programowanie\\CS\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra.csproj": {
+    "H:\\Programowanie\\CS\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Programowanie\\CS\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra.csproj",
+        "projectUniqueName": "H:\\Programowanie\\CS\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra.csproj",
         "projectName": "BardzoSiszarpowaGra",
-        "projectPath": "H:\\Programowanie\\CS\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra.csproj",
+        "projectPath": "H:\\Programowanie\\CS\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra.csproj",
         "packagesPath": "C:\\Users\\hazel\\.nuget\\packages\\",
-        "outputPath": "H:\\Programowanie\\CS\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\obj\\",
+        "outputPath": "H:\\Programowanie\\CS\\BardzoSiszarpowaGra\\BardzoSiszarpowaGra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hazel\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,0 +1,7 @@
+!say Siemanko
+!checksay a 101 Masz duuużo zręczności
+!ask co o tym sądzisz? ; tak ; nie ; nie mam zdania
+!choice 1 To dobrze, że tak.
+!choice 2 To źle, że nie.
+!choice 3 Jak to nie wiesz?
+!choice 1 Ale w sumie...

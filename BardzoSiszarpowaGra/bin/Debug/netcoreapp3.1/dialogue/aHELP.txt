@@ -1,0 +1,10 @@
+Wszystkie linie zaczynające się od ! są traktowe jako linie sterujące
+pozostałe są traktowane jako komentarze
+dostępne komendy: 
+!say treść do powiedzenia - wypisuje treść do powiedzenia przez NPC
+!checksay s 13 tresc do wypowiedzenia - sprawdza czy statystyka pod podaną literą jest równa bądź wyższa od określonej wartości i jeśli jest to wypowiada ją
+!ask odpowiedź pierwsza ; odpowiedź druga ; odpowiedź trzecia - daje graczowi możliwość wyboru spośród odpowiedzi, ilość wariantów może być dowolna
+!choice 1 - odpowiedź po pierwszym wariancie
+!choice 2 - odpowiedź po drugim wariancie
+!choice 3 - odpowiedź po trzecim wariancie
+!choice x - odpowiedź po x wariancie
